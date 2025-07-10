@@ -68,7 +68,7 @@ def login():
     access_token = create_access_token(identity={'username': user.username, 'MSSV': user.MSSV})
     return jsonify({'access_token': access_token}), 200
 
-@app.route('/members', methods=['GET'])
+@app.route('/api/members', methods=['GET'])
 # @jwt_required()
 def get_members():
     try:
@@ -173,7 +173,7 @@ def delete_member(id):
         logging.error(f"Error deleting member: {e}")
         return jsonify({'error': str(e)}), 500
 
-@app.route('/checkin', methods=['POST'])
+@app.route('/api/checkin', methods=['POST'])
 # @jwt_required()
 def checkin_member():
     try:
@@ -207,7 +207,7 @@ def checkin_member():
         logging.error(f"Error checking in member: {e}")
         return jsonify({'error': str(e)}), 500
 
-@app.route('/esp/checkin', methods=['POST'])
+@app.route('/api/esp/checkin', methods=['POST'])
 def checkin_member_esp():
     try:
         data = request.get_json()
