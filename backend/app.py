@@ -208,7 +208,6 @@ def checkin_member():
         return jsonify({'error': str(e)}), 500
 
 @app.route('/esp/checkin', methods=['POST'])
-@jwt_required()
 def checkin_member_esp():
     try:
         data = request.get_json()
