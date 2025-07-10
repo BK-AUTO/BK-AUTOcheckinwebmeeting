@@ -15,6 +15,6 @@ services:
       context: ./backend
     ports:
       - "5000:5000"
-    command: ["python", "/app/wsgi.py"]
+    command: ["python", "wsgi.py"]
     volumes:
       - ./backend:/app
