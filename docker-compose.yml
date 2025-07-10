@@ -9,14 +9,12 @@ services:
     volumes:
       - ./frontend:/app
       - /app/node_modules
-    working_dir: /app
 
   backend:
     build:
       context: ./backend
     ports:
       - "5000:5000"
-    command: ["python", "wsgi.py"]
+    command: ["python", "/app/wsgi.py"]
     volumes:
       - ./backend:/app
-    working_dir: /app
